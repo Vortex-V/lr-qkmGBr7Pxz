@@ -1,0 +1,18 @@
+
+if [ -z $1 ] 
+then	
+	echo 'scan directory [extension]'; exit 0;	
+fi
+
+if [ -z $2 ]
+then
+	if [ $1 = / ] 
+	then ls $1*;
+	else ls $1/*;
+	fi
+else
+	if [ $1 = / ]
+	then ls /*.$2;
+	else ls $1/*.$2;
+	fi
+fi
