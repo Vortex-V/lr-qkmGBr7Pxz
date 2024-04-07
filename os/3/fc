@@ -1,0 +1,5 @@
+arr=($@);
+for i in ${!arr[@]}
+do 
+	echo "$i: ${arr[i]}";
+done

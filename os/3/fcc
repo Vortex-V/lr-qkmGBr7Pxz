@@ -1,0 +1,6 @@
+arr=($@);
+for i in ${!arr[@]}
+do 
+	echo "argv[$i] = ${arr[i]}";
+done
+echo "count: $#";

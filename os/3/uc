@@ -1,0 +1,11 @@
+arr=($@);
+i=0;
+until [ 1 -eq 0 ]
+do
+        echo "$i: ${arr[i]}";
+        i=$((i+1));
+	if [ $i -eq $# ]
+	then 
+		break;
+	fi
+done

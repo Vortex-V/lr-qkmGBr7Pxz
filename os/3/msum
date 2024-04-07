@@ -1,0 +1,7 @@
+s=0;
+count=$#;
+for i in $@
+do 
+	s=$((s + i));	
+done
+echo $((s / count));

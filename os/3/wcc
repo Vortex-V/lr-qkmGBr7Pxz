@@ -1,0 +1,8 @@
+arr=($@);
+i=0;
+while [ $i -lt $# ]
+do
+	echo "argv[$i] = ${arr[i]}";
+	i=$((i+1));
+done
+echo "count: $#";
