@@ -1,10 +1,9 @@
 if [ -z $1 ]
-then 
+then
 	echo 'usage: wdname filename';
 	exit 0;
 fi
 
-dateStr=$(grep -E '[[:digit:]]{2}\.[[:digit:]]{2}\.[[:digit:]]{4}' $1);
-
-#TODO
-date -d $dateStr +%a;
+dateStr=`grep -E '[[:digit:]]{2}\.[[:digit:]]{2}\.[[:digit:]]{4}' $1`;
+IFS='. ' read -r -a dateArr <<< "$dateStr"; IFS=' ';
+date -d ${dateArr[2]}${dateArr[1]}${dateArr[0]} +%a;
