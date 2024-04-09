@@ -1,28 +1,34 @@
-render {
-	
+function render {	
+	local MENU=(
+		"Команды просмотра файлов"
+		"#Выполнить команду «cat > filename»"
+		"#Выполнить команду «tee > filename»"
+		"Команды редактирования файлов"
+		"#Редактировать файл filename с помощью nano"
+		"#Редактировать файл filename с помощью vim"
+	);
+	local level=(0 0);
+	for i in ${!MENU[@]}
+	do
+		local el=${MENU[$i]};
+		local before="";
+		if echo $el | grep -q -e "^#"
+		then 
+			level[1]=$((level[1]+1));
+			before=$(printf "%s.%s" ${level[@]});
+		else 
+			level[0]=$((level[0]+1));
+			level[1]=0;
+			before=${level[0]};
+		fi
+		echo $before ${el#*#};
+	done
 }
 
-menuList=(
-	(
-	"Команды просмотра файлов"
-		(
-		"Выполнить команду «cat > filename»"
-		"Выполнить команду «tee > filename»"
-		)
-	)
-	(
-	"Команды редактирования файлов"
-		(
-		"Редактировать файл filename с помощью nano"
-		"Редактировать файл filename с помощью vim"
-		)
-	)
-);
-cord=(0 0);
-
-inp=;
-until ! [ inp -eq ".." ] 
+inp="0";
+while [ $inp != "exit" ] 
 do
-	render
-	read -p "" inp
+	render;
+	read -p ">" inp;
+	echo $inp;	
 done
