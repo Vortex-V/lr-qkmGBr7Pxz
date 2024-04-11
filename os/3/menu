@@ -1,34 +1,86 @@
-function render {	
-	local MENU=(
+#!/bin/bash
+
+MENU=(
 		"Команды просмотра файлов"
 		"#Выполнить команду «cat > filename»"
-		"#Выполнить команду «tee > filename»"
+		"#Выполнить команду «tee filename»"
 		"Команды редактирования файлов"
 		"#Редактировать файл filename с помощью nano"
 		"#Редактировать файл filename с помощью vim"
-	);
-	local level=(0 0);
+);
+curr=0;
+inp="0";
+level=0;
+
+function render {
+	if [ $inp -gt 0 ]
+	then
+		level=1;
+	elif [ $inp -eq 0 ] || [ $inp -eq 3 ]
+	then
+		level=0;
+	fi
+
+	local parent=0;
+	local child=0;
 	for i in ${!MENU[@]}
 	do
 		local el=${MENU[$i]};
-		local before="";
-		if echo $el | grep -q -e "^#"
-		then 
-			level[1]=$((level[1]+1));
-			before=$(printf "%s.%s" ${level[@]});
-		else 
-			level[0]=$((level[0]+1));
-			level[1]=0;
-			before=${level[0]};
+		local isZeroLv=`echo $el | grep -q -e "^[^#]"; echo $?`;
+		if [ $isZeroLv -eq 0 ]
+		then
+			parent=$((parent + 1));
+			child=0;
+		else
+			child=$((child + 1));
 		fi
-		echo $before ${el#*#};
+
+		if [ $level -eq 0 ]
+		then
+			if [ $isZeroLv -eq 0 ]
+			then
+				echo "$parent. $el";
+			fi
+		elif [ $level -eq 1 ]
+		then
+			if [ $parent -eq $inp ] && [ $isZeroLv -eq 1 ]
+			then
+				echo "$parent.$child. $el";
+			fi
+		fi
 	done
 }
 
-inp="0";
+arg="";
 while [ $inp != "exit" ] 
 do
-	render;
-	read -p ">" inp;
-	echo $inp;	
+	#badcode сделать бы лучше нормальный мэппинг
+	if [ $curr -gt 0 ] && [ $curr -lt 3 ]
+	then
+		arg=${arg:="file.txt"}
+		if [ $curr -eq 1 ]
+		then
+			if [ $inp -eq 1 ]
+			then
+				cat > $arg
+			elif [ $inp -eq 2 ]
+			then
+				tee $arg
+			fi
+		elif [ $curr -eq 2 ]
+		then
+			if [ $inp -eq 1 ]
+			then
+				nano $arg
+			elif [ $inp -eq 2 ]
+			then
+				vim $arg
+			fi
+		fi
+	else
+		render;
+	fi
+
+	curr=$inp;
+	read -p ">" inp arg;
 done
