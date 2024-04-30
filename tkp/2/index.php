@@ -75,19 +75,21 @@
         <section id="video">
             <h2>Продукт отечественной рок музыки</h2>
             <h3>Radio Tapok - Петропавловск</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Lwf9ACmduHM?si=5dvrtcz-cTHis6od"
+            <?=
+            '<iframe width="560" height="315" src="https://www.youtube.com/embed/Lwf9ACmduHM?si=5dvrtcz-cTHis6od"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen></iframe>'
+            ?>
         </section>
 
         <section id="music">
             <h3>Radio Tapok - Ермак</h3>
             <?=
-            "<audio controls>
-                <source src=\"media/tapok_ermak.mp3\" type=\"audio/mp3\">
+            '<audio controls>
+                <source src="media/tapok_ermak.mp3" type="audio/mp3">
                 Ваш браузер не поддерживает аудиоэлемент.
-            </audio>"
+            </audio>'
             ?>
         </section>
     </main>
