@@ -62,21 +62,19 @@
     <main>
         <section id="about">
             <h2>О себе</h2>
-            <p class="js--bio-text-block">
-                <?php
-                // PHP блок
-                $phpversion = phpversion();
-                $bioText = "Это PHP $phpversion";
-                echo $bioText;
-                ?>
-                <br>
-                Александров Виталий Евгеньевич.
+            <p>
+                <?= "Александров Виталий Евгеньевич.<br>" ?>
+                <span id="additional-bio"></span>
             </p>
-
+            <?php
+            $phpversion = phpversion();
+            echo "Страница работает на PHP $phpversion";
+            ?>
         </section>
 
         <section id="video">
             <h2>Продукт отечественной рок музыки</h2>
+            <h3>Radio Tapok - Петропавловск</h3>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/Lwf9ACmduHM?si=5dvrtcz-cTHis6od"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -84,26 +82,21 @@
         </section>
 
         <section id="music">
-            <h2>Radio Tapok - Ермак</h2>
-            <audio controls>
-                <source src="media/tapok_ermak.mp3" type="audio/mp3">
+            <h3>Radio Tapok - Ермак</h3>
+            <?=
+            "<audio controls>
+                <source src=\"media/tapok_ermak.mp3\" type=\"audio/mp3\">
                 Ваш браузер не поддерживает аудиоэлемент.
-            </audio>
+            </audio>"
+            ?>
         </section>
     </main>
 </div>
 
 <script>
-    let content = document.querySelector('.js--bio-text-block').innerHTML;
-    document.querySelector('.js--bio-text-block').innerHTML = content + "Инженер-разработчик компании Клик2Майс";
+    let element = document.querySelector('#additional-bio');
+    element.innerHTML = "Инженер-разработчик компании Клик2Майс";
 </script>
-<div style="overflow-y: scroll; max-height: 500px;">
-    <?php
-    //phpinfo();
-    // var_dump($_SERVER);
-    ?>
-</div>
-
 </body>
 </html>
 
