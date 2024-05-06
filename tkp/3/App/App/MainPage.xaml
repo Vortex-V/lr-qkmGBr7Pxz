@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:prop="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:static="clr-namespace:App"
+             prop:Class="App.MainPage"
+             >
+
+    <StackLayout>
+        <Frame BackgroundColor="Red" Padding="24" CornerRadius="0">
+            <Label prop:Name="labelHello" Text="Здравствуйте, товарищ пользователь! Назовитесь!" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+        </Frame>
+        <Entry prop:Name="fioEntry" Placeholder="Ваши данные" TextChanged="FioChanged"/>
+        <Button prop:Name="repeatButton" Text="Найти тунеядца" Clicked="ButtonRepeat" />
+        <Label prop:Name="labelRepeatCount" Text="Тунеядцы пока не были найдены." Margin="0,0,30,0" FontSize="16" />
+        <Button prop:Name="counterButton" Text="Наказать тунеядца!" Clicked="ButtonClick" />
+        <Label prop:Name="labelClickcount" Text="Тунеядцы требуют наказания" FontSize="16" />
+    </StackLayout>
+
+</ContentPage>
