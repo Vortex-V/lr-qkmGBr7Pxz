@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo -n 'File name: '; 
+read name;
+find / -name $name 2> /dev/null;
