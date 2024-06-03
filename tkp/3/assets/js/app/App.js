@@ -35,7 +35,6 @@ let App = function (config) {
         resolution: 1,
         rotating: false,
     }, config);
-    config = undefined;
 
     const container = this.config.container;
     renderer.setSize(
