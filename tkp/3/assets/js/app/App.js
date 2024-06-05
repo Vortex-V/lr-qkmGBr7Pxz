@@ -3,17 +3,20 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {models} from '../../models/models';
 
+// Создаёт сцену
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
     60, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({alpha: true});
 
+// Создаёт объект управления камерой и загрузчик glTF
 const controls = new OrbitControls(camera, renderer.domElement);
 const loader = new GLTFLoader();
 
 
 let App = function (config) {
 
+    // Смешивает переданную конфигурацию приложения с данными по умолчанию
     this.config = Object.assign({
         container: document.getElementById('app'),
         lights: {
@@ -42,6 +45,9 @@ let App = function (config) {
         window.innerHeight * this.config.resolution, false);
     container.appendChild(renderer.domElement);
 
+    /**
+     * Загружает модель
+     */
     function loadModel(model) {
         let source;
         switch (model.type) {
@@ -61,6 +67,9 @@ let App = function (config) {
         });
     }
 
+    /**
+     * Загружает площадку
+     */
     function loadPlain() {
         const plain = new THREE.Mesh(
             new THREE.PlaneGeometry(1000, 1000),
@@ -72,6 +81,9 @@ let App = function (config) {
         scene.add(plain)
     }
 
+    /**
+     * Создаёт объект направленного света
+     */
     function createLight(position, direction = {x: 0, y: 0, z: 0}) {
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(position.x, position.y, position.z);
@@ -79,6 +91,9 @@ let App = function (config) {
         return light;
     }
 
+    /**
+     * Загружает освещение
+     */
     function loadLights(lights) {
         const config = {
             forward: {x: 0, y: 10, z: 10}, // forward
@@ -94,11 +109,17 @@ let App = function (config) {
         }
     }
 
+    /**
+     * Запускает автоповорот
+     */
     function runRotating() {
         controls.autoRotate = true;
         controls.autoRotateSpeed = 5;
     }
 
+    /**
+     * Запускает приложение
+     */
     this.run = function () {
         const config = this.config;
         config.plain && loadPlain();
