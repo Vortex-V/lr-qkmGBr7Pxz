@@ -1,0 +1,16 @@
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\bin\Debug\netstandard2.0\App.deps.json
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\bin\Debug\netstandard2.0\App.dll
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\bin\Debug\netstandard2.0\ref\App.dll
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\bin\Debug\netstandard2.0\App.pdb
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.csproj.AssemblyReference.cache
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.GeneratedMSBuildEditorConfig.editorconfig
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.AssemblyInfoInputs.cache
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.AssemblyInfo.cs
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.csproj.CoreCompileInputs.cache
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.sourcelink.json
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.dll
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\refint\App.dll
+D:\Docs\HightEdu\2\lr-qkmGBr7Pxz\tkp\3\App\App\obj\Debug\netstandard2.0\App.pdb

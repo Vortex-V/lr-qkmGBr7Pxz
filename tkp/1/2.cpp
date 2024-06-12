@@ -1,51 +1,38 @@
 #include <iostream>
-#include <thread>
-#include <chrono>
+#include <string.h>
+#include <ctime>
 
 using namespace std;
-#define N 100
-unsigned int a[N];
 
-void myThread1 (int duration){
-    std::this_thread::sleep_for(std::chrono::seconds(duration));
-    double time_spent = 0.0;
-    clock_t begin = clock();
-    for (int i = 0; i < N; i++){
-        a[i] = i;
-    }
+void eratosthenesSieve(int n) {
+    bool a[n];
     a[1] = 1;
-    for (int s = 2; s < N; s++){
-        if (a[s] != 0){
-            for (int j = s * 2; j < N; j += s){
-                a[j] = 0;
+    for (int i = 2; i <= n; i++) {
+        a[i] = true;
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+        if (a[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                a[j] = false;
             }
         }
     }
-    for (int i = 0; i < N; i++) {
-        if (a[i] != 0 && a[i] >1) printf("%d, ", a[i]);
+
+    cout << "Prime numbers: ";
+    for (int i = 2; i <= n; i++) {
+        if (a[i]) {
+            cout << i << " ";
+        }
     }
-    clock_t end = clock();
-    time_spent = (double)(end-begin) / CLOCKS_PER_SEC; 
-    printf("\nThe elapsed time is %f seconds\n", time_spent);
+    cout << endl;
 }
 
-void myThread2 (int duration){
-    std::this_thread::sleep_for(std::chrono::seconds(duration));
-    double time_spent = 0.0;
+int main() {
+    printf("Enter number: \n");
+    int number;
+    cin >> number;
     clock_t begin = clock();
-    for (int i = 1; i <= 20; i++){ 
-        printf("%d, ", i * i * i);
-    }
-    clock_t end = clock();
-    time_spent = (double)(end-begin) / CLOCKS_PER_SEC;
-    printf("\nThe elapsed time is %f seconds\n", time_spent);
-}  
-
-int main()
-{
-    std::thread th1(myThread1, 1);
-    std::thread th2(myThread2, 2);
-    th1.join();
-    th2.join();
-    return 0;
+    eratosthenesSieve(number);
+    printf("The elapsed time is: %.6f sec\n", (double)(clock() - begin) / CLOCKS_PER_SEC);
 }
