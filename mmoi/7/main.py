@@ -6,10 +6,10 @@ from pylab import *
 # for f in filters:
 #     img.filter(f).show()
 
-im = array(Image.open('rock.jpg').convert('L'))
-figure()
-gray()
-contour(im, origin='image')
-axis('equal')
-axis('off')
-show()
+# im = array(Image.open('rock.jpg').convert('L'))
+# figure()
+# gray()
+# contour(im, origin='image')
+# axis('equal')
+# axis('off')
+# show()

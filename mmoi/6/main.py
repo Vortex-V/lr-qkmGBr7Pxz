@@ -49,8 +49,8 @@ from pylab import *
 # x = [100, 100, 400, 400]
 # y = [200, 500, 200, 500]
 # axis('off')
-# # plot(x, y)
-# # plot(x, y, 'go-')
+# plot(x, y)
+# plot(x, y, 'go-')
 # plot(x, y, 'ks:')
 # title('Плоттинг: "rock.jpg"')
 # show()

@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 #     for y in range(img.size[1]):
 #         r,g,b = img.getpixel((x,y))
 #         img.putpixel((x, y), (b, r, g))
-# img.show() # замена каналов
+# img.show()
 
 
 # img = Image.open("rock.jpg")
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 # print(img2.mode)
 # img2.show()
 
-img = Image.open("rock.jpg")
-plt.figure()
-plt.hist(img.histogram(), 128)
-plt.show()
+# img = Image.open("rock.jpg")
+# plt.figure()
+# plt.hist(img.histogram(), 128)
+# plt.show()

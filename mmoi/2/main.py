@@ -1,5 +1,5 @@
 from PIL import Image
-# import io
+import io
 
 # img = Image.open("rock.jpg")
 # img.convert("L")
@@ -19,8 +19,8 @@ from PIL import Image
 # print(img.size, img.format, img.mode)
 # print(img.info)
 
-img = Image.open("rock.jpg")
-print(img.mode)
-print(img.size)
-print(img.getbbox())
+# img = Image.open("rock.jpg")
+# print(img.mode)
+# print(img.size)
+# print(img.getbbox())
 

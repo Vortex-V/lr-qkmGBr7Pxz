@@ -1,6 +1,6 @@
 from PIL import Image
 
-# import io
+import io
 
 # img = Image.open("rock.jpg")
 # imgObj = img.load()
